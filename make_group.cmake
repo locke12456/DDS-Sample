@@ -1,0 +1,16 @@
+FUNCTION(MakeGroup GLOB_RECURSE GroupName DIR)
+	foreach(f ${${GLOB_RECURSE}})
+		# Get the path of the file relative to ${DIRECTORY},
+		# then alter it (not compulsory)
+		file(RELATIVE_PATH SRCGR ${${DIR}} ${f})
+		SET( path "/${SRCGR}" )
+		set(SRCGR ${GroupName}${path})
+		
+		string(REGEX REPLACE "(.*)(/[^/]*)$" "\\1" SRCGR ${SRCGR})
+		# Source_group expects \\ (double antislash), not / (slash)
+		string(REPLACE / \\ SRCGR ${SRCGR})
+		#MESSAGE(${f})
+		source_group("${SRCGR}" FILES ${f})
+		#MESSAGE(STATUS ${f} )
+	endforeach()
+ENDFUNCTION()
