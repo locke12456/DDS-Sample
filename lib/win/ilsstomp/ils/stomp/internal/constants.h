@@ -1,0 +1,29 @@
+//----------------------------------------------------------------
+//
+//-- Filename: ils/stomp/internal/constants.h
+//
+//----------------------------------------------------------------
+
+#ifndef ILS_STOMP_INTERNAL_CONSTANTS_H_
+#define ILS_STOMP_INTERNAL_CONSTANTS_H_
+
+#define STOMP_FRAME_TYPE_UNKNOWN_LS		"UNKNOWN"
+
+#define STOMP_FRAME_TYPE_CONNECT_LS		"STOMP"
+#define STOMP_FRAME_TYPE_CONNECT_LS2	"CONNECT"
+#define STOMP_FRAME_TYPE_SEND_LS		"SEND"
+#define STOMP_FRAME_TYPE_SUBSCRIBE_LS	"SUBSCRIBE"
+#define STOMP_FRAME_TYPE_UNSUBSCRIBE_LS	"UNSUBSCRIBE"
+#define STOMP_FRAME_TYPE_ACK_LS			"ACK"
+#define STOMP_FRAME_TYPE_NACK_LS		"NACK"
+#define STOMP_FRAME_TYPE_BEGIN_LS		"BEGIN"
+#define STOMP_FRAME_TYPE_COMMIT_LS		"COMMIT"
+#define STOMP_FRAME_TYPE_ABORT_LS		"ABORT"
+#define STOMP_FRAME_TYPE_DISCONNECT_LS	"DISCONNECT"
+
+#define STOMP_FRAME_TYPE_CONNECTED_LS	"CONNECTED"
+#define STOMP_FRAME_TYPE_MESSAGE_LS		"MESSAGE"
+#define STOMP_FRAME_TYPE_RECEIPT_LS		"RECEIPT"
+#define STOMP_FRAME_TYPE_ERROR_LS		"ERROR"
+
+#endif

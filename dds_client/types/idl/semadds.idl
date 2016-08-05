@@ -1,0 +1,19 @@
+/**
+ * @addtogroup SEMADDS_Types_idlfiles
+ */
+/** @{*/
+/** @file */
+
+module SEMADDS_Types
+{
+   struct Message
+   {
+      /** User ID */
+      long id;
+      /**  message */
+      string message;
+   };
+   #pragma keylist Message id
+};
+
+/** @}*/

@@ -1,0 +1,5 @@
+FUNCTION(link_semadds Target)
+	TARGET_LINK_LIBRARIES( ${Target} SEMACloudDDSTypes )
+	TARGET_LINK_LIBRARIES( ${Target} ddskernel )
+	TARGET_LINK_LIBRARIES( ${Target} dcpssacpp )
+ENDFUNCTION()

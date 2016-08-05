@@ -1,0 +1,31 @@
+##----------------------------------------------------------------
+##
+##-- Filename: Makefile.vxworks
+##
+##-- $Date: 2011/08/30 15:22:34 $
+##-- $Revision: 1.1 $
+##-- $Name:  $
+##
+##----------------------------------------------------------------
+
+ifeq ($(VXCPU),)
+VXCPU=SIMPENTIUMgnu
+endif
+
+TOOL_FAMILY=gnu
+
+include Makefile
+
+include $(WIND_USR)/tool/gnu/make.$(VXCPU)
+
+AR += cq
+FLAGS += $(DEFINE_CC) $(CC_ARCH_SPEC) -MD -MP -D_VX_CPU=_VX_$(CPU) -D_VX_TOOL_FAMILY=gnu -D_VX_TOOL=$(TOOL)
+FLAGS += -mrtp -I$(WIND_USR)/h -I$(WIND_USR)/h/wrn/coreip
+
+LIB_LDFLAGS += -L$(WIND_USR)/lib/$(VX_CPU_FAMILY)/$(CPU)/$(TOOL_COMMON_DIR)/PIC
+
+#LIB_LIBS = 
+
+ifeq ($(WIND_PLATFORM),vxworks-6.6)
+FLAGS += -mlongcall -fsigned-char
+endif

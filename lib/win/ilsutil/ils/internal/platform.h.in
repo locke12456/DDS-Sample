@@ -1,0 +1,239 @@
+//----------------------------------------------------------------
+//
+//-- Filename: ilsutil_platform.h
+//-- THIS HEADER IS AUTOMATICALLY INCLUDED IN: ilsutil.h!
+//
+//-- Copyright: 2001-2013, ILS Technology, LLC
+//
+//----------------------------------------------------------------
+#ifndef _ILSUTIL_PLATFORM_H
+#define _ILSUTIL_PLATFORM_H
+
+#ifdef _VX_CPU
+#  ifdef _WRS_KERNEL
+#    define _VXWORKS_KNL 1
+#  else
+#    define _VXWORKS_RTP 1
+#  endif
+#  define _VXWORKS 1
+#endif
+#define _UNIX 1
+@OS_TYPE_ID@
+#define _REENTRANT 1
+
+#if defined(_LINUX) || defined(_VXWORKS)
+#  define _GNU_SOURCE 1
+#endif
+
+#define UTIL_PACKAGE_VERSION "@PACKAGE_VERSION@"
+#define UTIL_PACKAGE_NAME "@PACKAGE_NAME@"
+
+@BIG_BYTEORDER@
+@LITTLE_BYTEORDER@
+
+@CROSS_ENDIAN_DOUBLES@
+
+#if defined(_VXWORKS)
+#  include <vxWorks.h>
+#  include <sockLib.h>
+#  include <hostLib.h>
+#  include <strings.h>
+#  include <inetLib.h>
+#  include <selectLib.h>
+#  if defined(_VXWORKS_KNL)
+#    include <selectLib.h>
+#    include <usrFsLib.h>
+#    include <symLib.h>
+#    include <loadLib.h>
+#    include <unldLib.h>
+#    include <moduleLib.h>
+#    include <ioLib.h>
+#  endif
+#  define MSG_NOSIGNAL 0
+#  define UTIL_EXPORT
+#  define GETNETERR() errno
+#else
+#  define UTIL_EXPORT
+#  define GETNETERR() errno
+#endif
+
+#if defined(_AIX)
+#	include <sys/sched.h>
+#	define thread_create threadCreate
+#endif
+
+@USE_STATIC_SQLITE@
+
+@HAS_SEMTIMEDWAIT@
+@HAS_STRTOK_R@
+@HAS_UTIMES@
+@USE_SYSTEM_INSTEAD_OF_FORK@
+
+#ifndef HAS___THREAD_TLS
+#  ifndef HAS_PTHREAD_TLS
+@TLS_MODE@
+#  endif
+#endif
+
+#if defined(HAVE_ARPA_INET_H)
+#  include <arpa/inet.h>
+#endif
+
+#if defined(HAVE_BYTESWAP_H)
+#  include <byteswap.h>
+#endif
+
+#if defined(HAVE_ENDIAN_H)
+#  include <endian.h>
+#endif
+
+#if defined(HAVE_ERRNO_H)
+#  include <errno.h>
+#endif
+
+#if defined(HAVE_FCNTL_H)
+#  include <fcntl.h>
+#endif
+
+#if defined(HAVE_MALLOC_H)
+#  include <malloc.h>
+#endif
+
+#if defined(HAVE_NETDB_H)
+#  include <netdb.h>
+#endif
+
+#if defined(HAVE_NET_IF_H)
+#  include <net/if.h>
+#endif
+
+#if defined(HAVE_NETINET_IN_H)
+#  include <netinet/in.h>
+#endif
+
+#if defined(HAVE_NETINET_TCP_H)
+#  include <netinet/tcp.h>
+#endif
+
+#if defined(HAVE_PTHREAD_H)
+#  include <pthread.h>
+#endif
+
+#if defined(HAVE_SEMAPHORE_H)
+#  include <semaphore.h>
+#endif
+
+#if defined(HAVE_SIGNAL_H)
+#  include <signal.h>
+#endif
+
+#if defined(HAVE_STDARG_H)
+#  include <stdarg.h>
+#endif
+
+#if defined(HAVE_FNMATCH_H)
+#  include <fnmatch.h>
+#endif
+
+#if defined(HAVE_DIRENT_H)
+#  include <dirent.h>
+#endif
+
+#if defined(HAVE_SYS_BYTEORDER_H)
+#  include <sys/byteorder.h>
+#endif
+
+#if defined(HAVE_SYS_IOCTL_H)
+#  include <sys/ioctl.h>
+#endif
+
+#if defined(HAVE_SYS_IPC_H)
+#  include <sys/ipc.h>
+#endif
+
+#if defined(HAVE_SYS_MMAN_H)
+#  include <sys/mman.h>
+#endif
+
+#if defined(HAVE_SYS_RESOURCE_H)
+#  include <sys/resource.h>
+#endif
+
+#if defined(HAVE_SYS_SELECT_H)
+#  include <sys/select.h>
+#endif
+
+#if defined(HAVE_SYS_SEM_H)
+#  include <sys/sem.h>
+#endif
+
+#if defined(HAVE_SYS_SHM_H)
+#  include <sys/shm.h>
+#endif
+
+#if defined(HAVE_SYS_SOCKET_H)
+#  include <sys/socket.h>
+#endif
+
+#if defined(HAVE_SYS_SOCKIO_H)
+#  include <sys/sockio.h>
+#endif
+
+#if defined(HAVE_SYS_STAT_H)
+#  include <sys/stat.h>
+#endif
+
+#if defined(HAVE_SYS_TIME_H)
+#  include <sys/time.h>
+#endif
+
+#if defined(HAVE_SYS_TYPES_H)
+#  include <sys/types.h>
+#endif
+
+#if defined(HAVE_SYS_UTSNAME_H)
+#  include <sys/utsname.h>
+#endif
+
+#if defined(HAVE_SYS_XTI_INET_H)
+#  include <sys/xti_inet.h>
+#endif
+
+#if defined(HAVE_TERMIO_H)
+#  include <termio.h>
+#endif
+
+#if defined(HAVE_TIME_H)
+#  include <time.h>
+#endif
+
+#if defined(HAVE_UNISTD_H)
+#  include <unistd.h>
+#endif
+
+#if defined(HAVE_UTIME_H)
+#  include <utime.h>
+#endif
+
+#if defined(HAVE_DLFCN_H)
+#  include <dlfcn.h>
+#endif
+
+#if defined(HAVE_ICONV_H)
+#  include <iconv.h>
+#endif
+
+#if defined(HAVE_SQLITE3_H)
+#  include <sqlite3.h>
+#endif
+
+#if defined(HAVE_ZLIB_H)
+#  include <zlib.h>
+#endif
+
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+#include <stdlib.h>
+
+#endif

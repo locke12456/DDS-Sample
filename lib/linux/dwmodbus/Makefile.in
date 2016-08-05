@@ -1,0 +1,39 @@
+##----------------------------------------------------------------
+##
+##-- Filename: Makefile
+##
+##-- $Date: 2011/08/30 15:22:34 $
+##-- $Revision: 1.1 $
+##-- $Name:  $
+##
+##----------------------------------------------------------------
+
+NAME = dwmodbus
+
+CC = @CC@
+@OPT_MODE@FLAGS = @CF_WARN@ @CF_DBG@ @CF_OPTIMIZE@ @CF_PIC@ -I. @CPPFLAGS@ -I../dwcore -I../ilsutil -I../ilslog
+@DBG_MODE@FLAGS = @CF_WARN@ @CF_DBG@ @CF_PIC@ -I. @CPPFLAGS@ -I../dwcore -I../ilsutil -I../ilslog
+
+LIB_LDFLAGS = @LDFLAGS@ -L../dwcore/build/lib -L../ilsutil -L../ilslog
+LIB_LIBS = @LIBS@ -ldwlogic -ldwdata -ldwcore -ldwcommon -lilslog -lilsutil
+
+OBJS =  dwmodbus.o \
+		tcp.device.o \
+		tcp.read.o tcp.write.o \
+		version.o
+
+all : lib$(NAME).@SHLIBEXT@
+
+init : 
+	mkdir -p objs
+	
+.PHONY : lib$(NAME).@SHLIBEXT@
+
+lib$(NAME).@SHLIBEXT@ : init $(patsubst %.o, objs/%.o, $(OBJS))
+	$(CC) $(FLAGS) @LF_SHARED@ -o $@ $(patsubst %.o, objs/%.o, $(OBJS)) $(LIB_LDFLAGS) $(LIB_LIBS)
+		
+objs/%.o: src/%.c
+	 $(CC) $(FLAGS) -o $@ -c $<
+
+clean:
+	rm -fR lib$(NAME).@SHLIBEXT@ objs

@@ -1,0 +1,23 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{1981D0AE-57C4-41AE-8939-05A7088D1037}") = "dwmodbus", "dwmodbus.vcproj", "{F32CB792-B5BE-48FD-980C-2E710FCDEB40}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectDependencies) = postSolution
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{F32CB792-B5BE-48FD-980C-2E710FCDEB40}.Debug.ActiveCfg = Debug|Win32
+		{F32CB792-B5BE-48FD-980C-2E710FCDEB40}.Debug.Build.0 = Debug|Win32
+		{F32CB792-B5BE-48FD-980C-2E710FCDEB40}.Release.ActiveCfg = Release|Win32
+		{F32CB792-B5BE-48FD-980C-2E710FCDEB40}.Release.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

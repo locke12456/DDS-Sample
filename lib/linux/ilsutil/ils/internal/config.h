@@ -1,0 +1,49 @@
+/* ils/internal/config.h.  Generated from config.h.in by configure.  */
+
+#define HAVE_ARPA_INET_H 1
+#define HAVE_BYTESWAP_H 1
+#define HAVE_ENDIAN_H 1
+#define HAVE_ERRNO_H 1
+#define HAVE_FCNTL_H 1
+#define HAVE_INTTYPES_H 1
+#define HAVE_ICONV_H 1
+#define HAVE_MEMORY_H 1
+#define HAVE_NETDB_H 1
+#define HAVE_NETINET_IN_H 1
+#define HAVE_NETINET_TCP_H 1
+#define HAVE_NET_IF_H 1
+#define HAVE_PTHREAD_H 1
+#define HAVE_SEMAPHORE_H 1
+#define HAVE_SIGNAL_H 1
+#define HAVE_STDARG_H 1
+#define HAVE_STDINT_H 1
+#define HAVE_STDLIB_H 1
+#define HAVE_STRINGS_H 1
+#define HAVE_STRING_H 1
+#define HAVE_DIRENT_H 1
+#define HAVE_FNMATCH_H 1
+#define HAVE_SYS_IOCTL_H 1
+#define HAVE_SYS_IPC_H 1
+#define HAVE_SYS_MMAN_H 1
+#define HAVE_SYS_RESOURCE_H 1
+#define HAVE_SYS_SELECT_H 1
+#define HAVE_SYS_SEM_H 1
+#define HAVE_SYS_SHM_H 1
+#define HAVE_SYS_SOCKET_H 1
+/* #undef HAVE_SYS_SOCKIO_H */
+#define HAVE_SYS_STAT_H 1
+#define HAVE_SYS_TIME_H 1
+#define HAVE_SYS_TYPES_H 1
+#define HAVE_SYS_UTSNAME_H 1
+#define HAVE_TERMIO_H 1
+#define HAVE_TIME_H 1
+#define HAVE_UNISTD_H 1
+#define HAVE_UTIME_H 1
+#define HAVE_DLFCN_H 1
+#define HAVE_SQLITE3_H 1
+#define HAVE_OPENSSL_SSL_H 1
+#define HAVE_OPENSSL_CRYPTO_H 1
+#define HAVE_OPENSSL_AES_H 1
+/* #undef HAVE_OPENSSL_X509_H */
+#define HAVE_OPENSSL_ERR_H 1
+#define HAVE_OPENSSL_RAND_H 1

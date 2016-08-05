@@ -1,0 +1,45 @@
+/**
+ * @addtogroup SEMADDS_Types_idlfiles
+ */
+/** @{*/
+/** @file */
+module SEMADDS_Types
+{
+	interface SemaEApiInt{
+		unsigned long getValue();
+	};
+   struct Message
+   {
+      /** User ID */
+      long id;
+      /**  message */
+      string message;
+   };
+   #pragma keylist Message id
+   struct BoardValue
+   {
+      /** API ID */
+      unsigned long id;
+      /**  Value */
+      unsigned long Value;
+   };
+   enum APIKind{
+	   SemaEApiBoardValue ,
+	   SemaEApiCPUValue
+   };
+   union API switch(APIKind)
+   {
+	   case SemaEApiBoardValue:
+	   BoardValue SemaEApiBoardValue;
+	   case SemaEApiCPUValue:
+	   BoardValue SemaEApiCPUValue;
+   };
+   struct SemaEApi{
+	   unsigned long id;
+	   API Api;
+   };
+   
+   #pragma keylist SemaEApi id
+};
+
+/** @}*/

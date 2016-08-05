@@ -1,0 +1,38 @@
+##----------------------------------------------------------------
+##
+##-- Filename: Makefile
+##
+##-- $Date: 2011/08/30 20:04:23 $
+##-- $Revision: 1.1 $
+##-- $Name:  $
+##
+##----------------------------------------------------------------
+
+NAME = dwmodbus
+
+CC = ccsh
+FLAGS = -Wall -Wdeclaration-after-statement -g -O2 -fpic -I.  -fsigned-char -I../dwdependencies//include -I../dwcore -I../ilsutil -I../ilslog
+
+LIB_LDFLAGS =  -L../dwdependencies//lib -L../dwcore/build/lib -L../ilsutil -L../ilslog
+LIB_LIBS =  -ldwlogic -ldwdata -ldwcore -ldwcommon -lilslog -lilsutil
+
+OBJS =  dwmodbus.o \
+		tcp.device.o \
+		tcp.read.o tcp.write.o \
+		version.o
+
+all : lib$(NAME).so
+
+init : 
+	mkdir -p objs
+	
+.PHONY : lib$(NAME).so
+
+lib$(NAME).so : init $(patsubst %.o, objs/%.o, $(OBJS))
+	$(CC) $(FLAGS) -shared -o $@ $(patsubst %.o, objs/%.o, $(OBJS)) $(LIB_LDFLAGS) $(LIB_LIBS)
+		
+objs/%.o: src/%.c
+	 $(CC) $(FLAGS) -o $@ -c $<
+
+clean:
+	rm -fR lib$(NAME).so objs
